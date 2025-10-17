@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootballStats Live - Premier League 25/26</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a10 10 0 0 0 0 20"></path>
+                        <path d="M2 12h20"></path>
+                        <path d="M12 2v20"></path>
+                    </svg>
+                    <span class="logo-text">FootballStats</span>
+                    <span class="season-badge">25/26</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">Leagues</a>
+                    <a href="#" class="nav-link">Matches</a>
+                    <a href="#" class="nav-link">Players</a>
+                    <a href="#" class="nav-link">Teams</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Hero Stats -->
+            <section class="hero-stats">
+                <div class="stat-card" style="animation-delay: 0s">
+                    <div class="stat-icon">⚽</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Goals</div>
+                        <div class="stat-value" data-target="267">0</div>
+                        <div class="stat-change positive">+18 this week</div>
+                    </div>
+                </div>
+                <div class="stat-card" style="animation-delay: 0.1s">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Matches Played</div>
+                        <div class="stat-value" data-target="90">0</div>
+                        <div class="stat-change positive">Matchweek 9</div>
+                    </div>
+                </div>
+                <div class="stat-card" style="animation-delay: 0.2s">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Live Matches</div>
+                        <div class="stat-value live-count">2</div>
+                        <div class="stat-change positive">In Progress</div>
+                    </div>
+                </div>
+                <div class="stat-card" style="animation-delay: 0.3s">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <div class="stat-label">Avg Goals/Match</div>
+                        <div class="stat-value">2.97</div>
+                        <div class="stat-change positive">+0.3 vs last season</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <!-- Live Table -->
+                <section class="section live-table-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="live-badge">LIVE</span>
+                            Premier League Table
+                        </h2>
+                        <select class="league-select">
+                            <option>2025/26</option>
+                            <option>2024/25</option>
+                            <option>2023/24</option>
+                        </select>
+                    </div>
+                    <div class="table-container">
+                        <table class="league-table">
+                            <thead>
+                                <tr>
+                                    <th class="pos-col">#</th>
+                                    <th class="team-col">Team</th>
+                                    <th>MP</th>
+                                    <th>W</th>
+                                    <th>D</th>
+                                    <th>L</th>
+                                    <th>GD</th>
+                                    <th>Pts</th>
+                                    <th>Form</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leagueTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Top Players -->
+                <section class="section top-players-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Top Players
+                        </h2>
+                    </div>
+                    <div class="tabs">
+                        <button class="tab active" data-tab="scorers">
+                            <span>⚽</span> Top Scorers
+                        </button>
+                        <button class="tab" data-tab="assists">
+                            <span>🎯</span> Assists
+                        </button>
+                        <button class="tab" data-tab="ratings">
+                            <span>⭐</span> Ratings
+                        </button>
+                    </div>
+                    <div class="tab-content">
+                        <div id="scorers" class="tab-panel active">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                        <div id="assists" class="tab-panel">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                        <div id="ratings" class="tab-panel">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Match Highlights -->
+            <section class="section match-highlights-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                            <polyline points="17 2 12 7 7 2"></polyline>
+                        </svg>
+                        Live & Recent Matches
+                    </h2>
+                    <button class="view-all-btn">View All Fixtures</button>
+                </div>
+                <div class="matches-grid" id="matchesGrid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 FootballStats. All data sourced from official Premier League statistics.</p>
+                <p class="footer-note">Last updated: <span id="lastUpdated"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
