@@ -1,10 +1,3 @@
-// Declare necessary variables
-const leagueTableData = []
-const topScorersData = []
-const topAssistsData = []
-const topRatingsData = []
-const matchesData = []
-
 document.addEventListener("DOMContentLoaded", () => {
   renderLeagueTable()
   renderTopPlayers()
@@ -44,7 +37,7 @@ function renderLeagueTable() {
   const tbody = document.getElementById("leagueTableBody")
   tbody.innerHTML = ""
 
-  leagueTableData.forEach((team, index) => {
+  window.leagueTableData.forEach((team, index) => {
     const row = document.createElement("tr")
     row.style.animationDelay = `${index * 0.03}s`
     row.style.animation = "fadeInUp 0.4s ease-out forwards"
@@ -87,9 +80,9 @@ function renderLeagueTable() {
 
 // Render Top Players
 function renderTopPlayers() {
-  renderPlayerList("scorers", topScorersData, "goals")
-  renderPlayerList("assists", topAssistsData, "assists")
-  renderPlayerList("ratings", topRatingsData, "rating")
+  renderPlayerList("scorers", window.topScorersData, "goals")
+  renderPlayerList("assists", window.topAssistsData, "assists")
+  renderPlayerList("ratings", window.topRatingsData, "rating")
 }
 
 function renderPlayerList(tabId, data, highlightStat) {
@@ -158,7 +151,7 @@ function renderMatches() {
   const grid = document.getElementById("matchesGrid")
   grid.innerHTML = ""
 
-  matchesData.forEach((match, index) => {
+  window.matchesData.forEach((match, index) => {
     const card = document.createElement("div")
     card.className = "match-card"
     card.style.animationDelay = `${index * 0.08}s`
