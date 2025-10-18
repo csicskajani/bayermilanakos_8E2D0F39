@@ -1,58 +1,137 @@
-# Dokumentáció
+# ⚽ FootballStats Live – Premier League 2025/26
 
-## Téma: Football Stats – Foci statisztika weboldal
+**Készítette:** Bayer Milán Ákos  
+**Dátum:** 2025. október  
+**Projekt típusa:** Interaktív futball statisztikai weboldal  
+**Használt nyelvek:** HTML, CSS, JavaScript  
 
-A weboldalam témája a labdarúgás, azon belül is a csapatok és játékosok statisztikáinak bemutatása.  
-A célom, hogy egy áttekinthető, látványos és informatív weboldalt készítsek, ahol a látogatók megismerhetik néhány ismert futballcsapat adatait és teljesítményét.  
-A projekt célja nemcsak az, hogy megjelenítsem az adatokat, hanem hogy JavaScript segítségével dinamikus számításokat és interaktív funkciókat is megvalósítsak.
+---
 
-A weboldal három fő részből fog állni:
-1. **Főoldal (index.html)** – rövid bemutató a fociról és a weboldal céljáról.  
-   Itt lesz néhány látványos kép és egy bevezető szöveg a statisztikai oldalakhoz.  
-   A navigációs menüből el lehet majd érni a többi oldalt.
-2. **Csapatok oldal (teams.html)** – itt egy táblázatban jelennek meg a csapatok adatai (név, lejátszott meccsek száma, rúgott és kapott gólok, győzelmek, vereségek stb.).  
-   Ezeket JavaScript tömbből töltöm be, és függvények segítségével fogom feldolgozni.
-3. **Statisztika oldal (stats.html)** – itt a JavaScript segítségével különböző számításokat végzek:  
-   például összegzem az összes rúgott gólt, megkeresem a legtöbb gólt rúgó csapatot, és kiszámolom az átlagos gólkülönbséget.  
-   Az eredményeket dinamikusan, a felhasználó által is frissíthető módon jelenítem meg.
+## 🧩 Projekt áttekintése
 
-A weboldalt **HTML**, **CSS** és **JavaScript** technológiák felhasználásával készítem.  
-A HTML a tartalom szerkezetét, a CSS a megjelenést biztosítja, míg a JavaScript felel az interaktív működésért és az adatok feldolgozásáért.  
-A célom az, hogy a weboldal mobilon és számítógépen is jól nézzen ki, ezért reszponzív elrendezést fogok alkalmazni.
+A FootballStats Live egy **Premier League statisztikai weboldal**,  
+amely megjeleníti a:
+- **bajnoki tabellát**,  
+- **legutóbbi és élő meccseket**,  
+- valamint általános **idény-statisztikákat** (gólok, meccsek száma, átlagos gólátlag stb.).  
 
-### JavaScript funkciók
+A célom egy **modern, angol nyelvű, animált, dinamikus futballoldal** létrehozása volt,  
+amely kizárólag **frontend technológiákkal** (HTML, CSS, JavaScript) működik.
 
-A weboldalban legalább **négy különböző JavaScript függvény** lesz, amelyek mind eltérő feladatot látnak el.  
-Lesz közöttük **paraméteres függvény** is.  
-A tervezett funkciók:
+---
 
-1. **Összegzés függvény:**  
-   Összeadja a csapatok által rúgott gólokat (→ *összegzés tétel*).  
-   Eredmény: az összes csapat összes gólja.
-2. **Maximumkeresés függvény:**  
-   Megkeresi, melyik csapat rúgta a legtöbb gólt (→ *maximum tétel*).  
-   Eredmény: a legjobb támadósorral rendelkező csapat neve.
-3. **Keresés függvény:**  
-   A felhasználó beír egy csapatnevet, és a program megkeresi, hogy szerepel-e az adatbázisban.  
-   (→ *elágazás, logika, ciklus*)
-4. **Átlagkalkulátor függvény (paraméteres):**  
-   Kiszámolja, hány gólt rúg átlagosan egy csapat egy meccsen.  
-   (→ *aritmetikai műveletek*)
+## 💻 Felhasznált technológiák
 
-Ezen kívül tervezek egy **logikai függvényt**, amely megvizsgálja, hogy egy csapat több gólt rúgott-e, mint amennyit kapott, és ennek alapján „jó formában” vagy „rossz formában” címkét ad neki.
+| Technológia | Felhasználás |
+|--------------|--------------|
+| **HTML5** | Az oldal szerkezete és tartalma |
+| **CSS3** | Stílus, reszponzív megjelenés, animációk |
+| **JavaScript** | Dinamikus tartalom és animációk megjelenítése |
+| **JSON-szerű adatok (`data.js`)** | A csapatok, meccsek és játékosok adatainak tárolása |
+| **Visual Studio Code** | Fejlesztői környezet |
 
-### Alkalmazott programozási elemek
+---
 
-A projekt során az alábbi programozási alapfogalmakat alkalmazom:
-- **Aritmetikai műveletek:** összeadás, kivonás, osztás (átlag, gólkülönbség stb.)
-- **Logikai műveletek:** összehasonlítások (>, <, ==, &&, ||)
-- **Elágazás:** `if-else` szerkezetek a feltételek ellenőrzésére
-- **Tömb:** a csapatok adatait tartalmazó lista (pl. név, gólok, meccsek)
-- **Ciklus:** `for` vagy `forEach` ciklus a tömbök bejárásához
-- **Függvény:** több különböző, saját készítésű függvény, köztük paraméteres is
+## ⚙️ Fő funkciók
 
-### Összegzés
+### 1️⃣ Premier League tabella
+Megjeleníti mind a 20 csapatot:
+- helyezés, formamutató (W/D/L),  
+- pontszám, gólkülönbség,  
+- vizuális jelölések (▲ vagy ▼).  
 
-A weboldal fő célja, hogy gyakorlati példán keresztül mutassa be a JavaScript alapvető funkcióit, és ezzel fejlessze a programozói tudásomat.  
-A focis téma egyszerre szórakoztató és informatív, így könnyen bemutatható az iskolában.  
-A projekt végére egy teljes, háromoldalas, működő weboldal jön létre, amelyben minden előírt programozási elem szerepelni fog, és a GitHubra is feltöltöm dokumentálva a napi előrehaladást és az AI-segítség felhasználását.
+Az adatok a `data.js` fájlból töltődnek be,  
+és a `renderLeagueTable()` függvény generálja őket dinamikusan.
+
+---
+
+### 2️⃣ Meccsek (Live & Recent)
+A legutóbbi Premier League-meccsek listája:
+- teljes eredmények,  
+- gólszerzők és stadionnevek,  
+- animált „LIVE” jelzés élő meccsekhez.  
+
+A megjelenítésért a `renderMatches()` függvény felel.
+
+---
+
+### 3️⃣ Statisztikai kártyák (felső rész)
+A főoldal tetején találhatók az animált statisztikai kártyák:
+- Összes gól  
+- Lejátszott meccsek  
+- Élő meccsek száma  
+- Átlagos gól/meccs  
+
+A számok fokozatosan „felszámolódnak”,  
+amit a `animateCounters()` függvény vezérel.
+
+---
+
+## 🧠 A `data.js` fájl magyarázata
+
+A projektben szereplő adatok (csapatok, meccsek, játékosok)  
+**nem közvetlenül HTML-ben vannak beírva**,  
+hanem egy külön **JavaScript fájlban (`data.js`)**, amely JSON-szerű adatstruktúrát használ.
+
+Ezt a megoldást **nem én találtam ki egyedül** —  
+az ötletet és a működését a jó öreg haverom, **Mr. GPT** magyarázta el nekem 😄  
+Ő mutatta meg, hogy így a kód **átláthatóbb, könnyebben frissíthető**,  
+és elválasztható az adat a megjelenítéstől.
+
+Így működik:
+- Az adatok JavaScript tömbökben és objektumokban vannak eltárolva.  
+- Ezeket globálisan elérhetővé tesszük a `window` objektum segítségével.  
+- A `script.js` innen olvassa ki őket és generálja le dinamikusan a táblákat és listákat.  
+
+Tehát gyakorlatilag ez egy **„mini adatbázis”** a frontend számára.
+
+---
+
+## 🎨 Design és UI
+
+- **Sötét, zöld akcentusos téma**, ami a Premier League stílusára épül.  
+- **Forgó logóanimáció** az oldal tetején (SVG + CSS keyframes).  
+- **Reszponzív megjelenés** (működik telefonon és PC-n is).  
+- **Hover animációk** minden interaktív elemen.  
+- **Fix navigációs sáv** halvány áttetszőséggel és fényes hatással.  
+
+---
+
+## 🔧 Fájlszerkezet
+
+
+---
+
+## ⚠️ Eltávolított részek
+
+A projekt elején volt egy **Players (Játékosok)** oldal is,  
+de később eltávolítottam, mert feleslegessé vált és hibákat okozott.  
+
+A végleges verzióban három fő oldal maradt:
+- **Leagues** (tabella)  
+- **Matches** (meccsek)  
+- **Teams** (csapatok nézete)
+
+Így az oldal stabilabb és átláthatóbb lett.
+
+---
+
+## 🚀 További fejlesztési ötletek
+
+A jövőben szeretném hozzáadni:
+- **Valódi Premier League API** használatát, hogy élő adatok is legyenek.  
+- **Keresőmezőt** a csapatok és meccsek gyors megkereséséhez.  
+- **Szűrőket** dátum és csapat alapján.  
+- **Interaktív diagramokat** (Recharts vagy Chart.js segítségével).
+
+---
+
+## 💬 Személyes megjegyzés
+
+Ez a projekt egyszerre volt tanulás és kihívás.  
+Először nem tudtam, hogyan kezeljem a nagyobb adatmennyiséget JavaScriptben,  
+de **Mr. GPT** segített megérteni az adat- és megjelenítés szétválasztását.  
+
+Most már nem csak működik az oldal, de **élettel teli, animált és modern** is lett. ⚽🔥  
+
+---
